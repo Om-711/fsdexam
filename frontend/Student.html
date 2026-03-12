@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="loadAssign(); add()">
+<div class="container">
+        <h3>Student Dashboard</h3>
+
+        <h4>Available Assignments</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Course</th>
+                    <th>Due-Date</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody id="assigntable"></tbody>
+        </table>
+
+        <h4>Submit Assignment</h4>
+        <select id="ass" required>
+            <option value="">-- Select Assignment --</option>
+        </select><br>
+        <input type="text" id="name" placeholder="Enter student name" required>
+        <textarea id="answer" placeholder="Enter your answer" rows="5" required></textarea><br>
+        <button onclick="submit()">Submit Assignment</button>
+        <div id="submitMsg"></div>
+
+        <h4>Your Submissions</h4>
+        <button onclick="loadMySubmissions()">Refresh Submissions</button>
+        <table id="submissionTable">
+            <thead>
+                <tr>
+                    <th>Assignment</th>
+                    <th>Answer</th>
+                    <th>Submitted</th>
+                    <th>Status</th>
+                    <th>Marks</th>
+                </tr>
+            </thead>
+            <tbody id="data"></tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

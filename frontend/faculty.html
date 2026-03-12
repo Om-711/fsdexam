@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h3>Faculty Dashboard</h3>
+        
+        <div class="section">
+            <h4>Create New Assignment</h4>
+            <input type="text" placeholder="Enter title" id="title" required>
+            <input type="text" placeholder="Enter Course" id="course" required>
+            <input type="date" id="date" required>
+            <textarea placeholder="Enter Description" id="description" rows="4" required></textarea>
+            <button onclick="create()">Create Assignment</button>
+            <div id="createMsg"></div>
+        </div>
+        
+        <div class="section">
+            <h4>Student Submissions for Grading</h4>
+            <button onclick="loadSubmissions()">Refresh Submissions</button>
+            <table id="subTable">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Assignment</th>
+                        <th>Answer</th>
+                        <th>Submitted Date</th>
+                        <th>Status</th>
+                        <th>Marks</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="submissionList"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
