@@ -88,8 +88,6 @@ async function submit(){
     const answer = document.getElementById("answer").value
     const msgDiv = document.getElementById("submitMsg")
 
-  
-
     await axios.post("http://localhost:3000/submit",{
         student_name,
         assignment_title,
