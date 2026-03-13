@@ -11,16 +11,22 @@ app.use(cors())
 app.use(express.json())
 
 app.post("/login", async function(req, res){
-    console.log(req)
-    const name = req.body.name
-    const password =  req.body.password
-    const role = req.body.role
-    
-    const user = await User.create({
-        name, password, role
-    }) 
+    const { name, password, role } = req.body
+
+    if (!name || !password || !role) {
+        return res.status(400).json({ message: "Please fill all fields" })
+    }
+
+    let user = await User.findOne({ name, role })
+
+    if (!user) {
+        user = await User.create({ name, password, role })
+    } else if (user.password !== password) {
+        return res.status(401).json({ message: "Invalid credentials" })
+    }
+
     res.json({
-        message:"Work"
+        message: "Work"
     })
 });
 
